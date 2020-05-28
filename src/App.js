@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import Exercise1 from "./exercise1"
+import Exercise2 from "./exercise2"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export default () =>
+    <div className="ola">
+        <section className="ola_ly-pageCenter">
+            <Router>
+                <Switch>
+                    <Route exact path="/"><Main /></Route>
+                    <Route path="/exercise1"><Exercise1 /></Route>
+                    <Route path="/exercise2"><Exercise2 /></Route>
+                </Switch>
+            </Router>
+        </section>
     </div>
-  );
-}
 
-export default App;
+const Main = () =>
+    <section className="App">
+        <img src={logo} className="App-logo" alt="logo" />
+        <Link  to="/exercise1">Exercise 1</Link>
+        <Link  to="/exercise2">Exercise 2</Link>
+    </section>
+
